@@ -12,11 +12,14 @@ on:
 
 jobs:
   build:
+    if: ${{ github.event.inputs.branch_name == 'main' }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install Apache
-        run: sudo apt update && sudo apt install -y apache2
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch_name }}  # Use the provided branch name
 
       - name: Check 
         run: echo "this is triggerd"
