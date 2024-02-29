@@ -4,14 +4,19 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch name'
+        required: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Apache
-      run: sudo apt update && sudo apt install -y apache2
+      - name: Install Apache
+        run: sudo apt update && sudo apt install apache2
 
-    - name: Check Apache status
-      run: systemctl status apache2
+      - name: Check Apache status
+        run: systemctl status apache2
