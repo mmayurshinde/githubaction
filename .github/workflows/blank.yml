@@ -18,5 +18,5 @@ jobs:
       - name: Install Apache
         run: sudo apt update && sudo apt install -y apache2
 
-      - name: Check Apache status
+      - name: Check 
         run: echo "this is triggerd"
