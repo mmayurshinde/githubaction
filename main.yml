@@ -1,1 +1,20 @@
+name: My Workflow
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Apache
+      run: sudo apt update && sudo apt install -y apache2
+
+    - name: Check Apache status
+      run: systemctl status apache2
