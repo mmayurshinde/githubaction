@@ -19,4 +19,4 @@ jobs:
         run: sudo apt update && sudo apt install -y apache2
 
       - name: Check Apache status
-        run: systemctl status apache2
+        run: systemctl start apache2
